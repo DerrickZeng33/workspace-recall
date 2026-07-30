@@ -93,6 +93,14 @@ Read [PRIVACY.md](PRIVACY.md) for the data lifecycle and
 [SECURITY.md](SECURITY.md) for the security boundary and private reporting
 process.
 
+## Compatibility Matrix
+
+Workspace Recall compatibility results are tracked in the
+[compatibility matrix](docs/COMPATIBILITY.md).
+
+The matrix contains evidence snapshots from specific test environments and
+does not represent a guarantee of support for all applications or versions.
+
 ## Build from source
 
 Requirements:
