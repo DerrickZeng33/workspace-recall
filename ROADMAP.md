@@ -32,3 +32,6 @@ direction, not promised dates.
 Feature requests are evaluated against privacy, explicit user control, and
 restore reliability. A candidate may change or be rejected as the prototype is
 tested.
+
+The maintainer-facing [launch plan](docs/launch/LAUNCH_PLAN.md) describes the
+signing, beta, outreach, and measurement sequence.
