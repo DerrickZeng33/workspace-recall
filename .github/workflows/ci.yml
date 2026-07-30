@@ -31,3 +31,7 @@ jobs:
 
       - name: Test
         run: dotnet run --project .\tests\WorkspaceRecall.Tests\WorkspaceRecall.Tests.csproj -c Release --no-build
+
+      - name: Build and verify portable package
+        shell: pwsh
+        run: .\build.ps1 -Configuration Release

@@ -5,7 +5,8 @@ document paths when applications expose them.
 
 > **Early prototype — source only.** No public executable is available yet.
 > Local builds are unsigned and should not be redistributed as trusted
-> releases.
+> releases. See the [release checklist](RELEASE_CHECKLIST.md) for the signing
+> and clean-machine gates required before publication.
 
 ![Synthetic Workspace Recall interface preview](docs/assets/interface-preview.png)
 
