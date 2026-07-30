@@ -1,20 +1,25 @@
 param(
     [ValidateSet("Debug", "Release")]
     [string]$Configuration = "Release",
-    [string]$RevitApiPath = $env:REVIT_API_PATH
+    [string]$RevitApiPath = $env:REVIT_API_PATH,
+    [string]$OutputDirectory,
+    [switch]$SelfContained,
+    [switch]$SkipRevit
 )
 
 $ErrorActionPreference = "Stop"
 $projectRoot = $PSScriptRoot
 $revitProject = Join-Path $projectRoot "src\WorkspaceRecall.RevitAddin\WorkspaceRecall.RevitAddin.csproj"
 $appProject = Join-Path $projectRoot "src\WorkspaceRecall.App\WorkspaceRecall.App.csproj"
-$outputDirectory = Join-Path $projectRoot "dist\WorkspaceRecall-win-x64"
+if ([string]::IsNullOrWhiteSpace($OutputDirectory)) {
+    $OutputDirectory = Join-Path $projectRoot "dist\WorkspaceRecall-win-x64"
+}
 $revitOutput = Join-Path $projectRoot "src\WorkspaceRecall.RevitAddin\bin\$Configuration\net8.0-windows\WorkspaceRecall.RevitAddin.dll"
 $packageVerifier = Join-Path $projectRoot "scripts\verify-release-package.ps1"
 
 $resolvedProjectRoot = [IO.Path]::GetFullPath($projectRoot) +
     [IO.Path]::DirectorySeparatorChar
-$resolvedOutputDirectory = [IO.Path]::GetFullPath($outputDirectory)
+$resolvedOutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 if (-not $resolvedOutputDirectory.StartsWith(
         $resolvedProjectRoot,
         [StringComparison]::OrdinalIgnoreCase)) {
@@ -25,7 +30,7 @@ if (Test-Path -LiteralPath $resolvedOutputDirectory) {
     Remove-Item -LiteralPath $resolvedOutputDirectory -Recurse -Force
 }
 
-if ([string]::IsNullOrWhiteSpace($RevitApiPath)) {
+if (-not $SkipRevit -and [string]::IsNullOrWhiteSpace($RevitApiPath)) {
     $registryRoots = @(
         "HKLM:\SOFTWARE\Autodesk\Revit\2026",
         "HKLM:\SOFTWARE\WOW6432Node\Autodesk\Revit\2026"
@@ -49,6 +54,7 @@ if ([string]::IsNullOrWhiteSpace($RevitApiPath)) {
 }
 
 $revitAvailable =
+    -not $SkipRevit -and
     -not [string]::IsNullOrWhiteSpace($RevitApiPath) -and
     (Test-Path -LiteralPath (Join-Path $RevitApiPath "RevitAPI.dll")) -and
     (Test-Path -LiteralPath (Join-Path $RevitApiPath "RevitAPIUI.dll"))
@@ -59,10 +65,11 @@ if ($revitAvailable) {
         "-p:RevitApiPath=$RevitApiPath"
 }
 
+$selfContainedValue = if ($SelfContained) { "true" } else { "false" }
 dotnet publish $appProject `
     --configuration $Configuration `
     --runtime win-x64 `
-    --self-contained false `
+    --self-contained $selfContainedValue `
     --verbosity minimal `
     --output $outputDirectory
 
@@ -101,7 +108,7 @@ Get-ChildItem -LiteralPath $outputDirectory -Recurse -Filter *.pdb |
 & $packageVerifier -PackagePath $outputDirectory
 
 Write-Output ""
-Write-Output "Portable build ready:"
+Write-Output "Build ready:"
 Write-Output (Join-Path $outputDirectory "WorkspaceRecall.exe")
 if (-not $revitAvailable) {
     Write-Output "Optional Revit helper skipped because the Revit 2026 API was not found."

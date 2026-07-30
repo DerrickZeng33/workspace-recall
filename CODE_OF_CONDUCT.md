@@ -1,6 +1,6 @@
 # Code of Conduct
 
-Workspace Recall welcomes respectful, constructive participation.
+Space Recorder welcomes respectful, constructive participation.
 
 ## Expected behavior
 

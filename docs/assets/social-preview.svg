@@ -22,7 +22,7 @@
     <rect x="74" y="70" width="45" height="34" rx="5"/>
     <rect x="90" y="84" width="45" height="34" rx="5"/>
   </g>
-  <text x="158" y="106" fill="#f2f7f9" font-family="Segoe UI, Arial" font-size="30" font-weight="600">Workspace Recall</text>
+  <text x="158" y="106" fill="#f2f7f9" font-family="Segoe UI, Arial" font-size="30" font-weight="600">Space Recorder</text>
 
   <text x="74" y="226" fill="#ffffff" font-family="Segoe UI, Arial" font-size="54" font-weight="700">Restore the workspace,</text>
   <text x="74" y="291" fill="#ffffff" font-family="Segoe UI, Arial" font-size="54" font-weight="700">not just the apps.</text>

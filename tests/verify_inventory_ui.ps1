@@ -167,7 +167,7 @@ try {
     }
 
     if ($process.MainWindowHandle -eq [IntPtr]::Zero) {
-        throw 'Workspace Recall did not create a main window.'
+        throw 'Space Recorder did not create a main window.'
     }
 
     $root = [System.Windows.Automation.AutomationElement]::FromHandle(

@@ -2,9 +2,10 @@
 
 ## Current decision
 
-Workspace Recall is source-only. The project may build and validate unsigned
-packages in isolated development or CI environments, but it does not publish
-them as trusted releases.
+Space Recorder is source-only. Its Microsoft Store product identity has been
+reserved, and the project may build and validate an unsigned Store package in
+isolated development or CI environments. No package has been uploaded,
+certified, or published.
 
 ## Public-release gate
 
@@ -14,9 +15,8 @@ Before a binary is made public, the project must use one of these routes:
 2. Package and distribute the application through an approved Microsoft Store
    process that establishes publisher trust.
 
-The final choice is deferred until the maintainer has reviewed identity,
-cost, renewal, automation, and recovery requirements. Documentation and CI
-must not imply that an unsigned build is safe merely because it compiled or
+The current planned route is Microsoft Store certification. Documentation and
+CI must not imply that an unsigned build is safe merely because it compiled or
 passed tests.
 
 ## Key-handling boundary
@@ -34,7 +34,7 @@ passed tests.
 `scripts\verify-release-package.ps1` checks required runtime files, rejects
 common private-data and key material, detects links that can escape the
 package, and calculates SHA-256 hashes. Use `-RequireSignature` only against
-the final signed executable:
+an executable that was signed outside the Store route:
 
 ```powershell
 .\scripts\verify-release-package.ps1 `
@@ -45,3 +45,13 @@ the final signed executable:
 Passing this verifier is one release gate, not a substitute for clean-machine
 testing, malware scanning, signature verification, or explicit publication
 approval.
+
+`scripts\build-msix.ps1` creates an unsigned `.msix` and `.msixupload` for
+Partner Center. It omits the optional Revit helper and requests only the
+`runFullTrust` capability required by the WPF desktop app.
+
+`scripts\verify-msix-package.ps1` confirms that the package identity matches
+Partner Center, required files and image dimensions are present, private or
+key material is absent, and no capability other than `runFullTrust` is
+declared. The verifier also rejects a pre-existing package signature because
+Microsoft Store signs an accepted Store package.
