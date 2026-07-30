@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081015"/>
+      <stop offset=".55" stop-color="#0d1a20"/>
+      <stop offset="1" stop-color="#102a35"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22c1f1"/>
+      <stop offset="1" stop-color="#087bc4"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#000" flood-opacity=".44"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#background)"/>
+  <circle cx="1110" cy="72" r="270" fill="#0d93c9" opacity=".12"/>
+  <circle cx="130" cy="625" r="220" fill="#10b981" opacity=".06"/>
+
+  <g fill="none" stroke="#20baf0" stroke-width="5">
+    <rect x="74" y="70" width="45" height="34" rx="5"/>
+    <rect x="90" y="84" width="45" height="34" rx="5"/>
+  </g>
+  <text x="158" y="106" fill="#f2f7f9" font-family="Segoe UI, Arial" font-size="30" font-weight="600">Workspace Recall</text>
+
+  <text x="74" y="226" fill="#ffffff" font-family="Segoe UI, Arial" font-size="54" font-weight="700">Restore the workspace,</text>
+  <text x="74" y="291" fill="#ffffff" font-family="Segoe UI, Arial" font-size="54" font-weight="700">not just the apps.</text>
+  <text x="77" y="349" fill="#a9bbc3" font-family="Segoe UI, Arial" font-size="24">Windows layouts with verified document-path detection.</text>
+
+  <g font-family="Segoe UI, Arial" font-size="17">
+    <rect x="76" y="400" width="158" height="40" rx="20" fill="#153627" stroke="#28744c"/>
+    <circle cx="99" cy="420" r="6" fill="#61d58a"/>
+    <text x="116" y="426" fill="#b7edc9">File identified</text>
+    <rect x="246" y="400" width="145" height="40" rx="20" fill="#12354a" stroke="#1a78a9"/>
+    <circle cx="269" cy="420" r="6" fill="#20baf0"/>
+    <text x="286" y="426" fill="#b9e6f7">Program only</text>
+    <rect x="403" y="400" width="144" height="40" rx="20" fill="#392d12" stroke="#8d6918"/>
+    <circle cx="426" cy="420" r="6" fill="#f5b942"/>
+    <text x="443" y="426" fill="#f4d582">Needs review</text>
+  </g>
+
+  <text x="76" y="560" fill="#7f949d" font-family="Segoe UI, Arial" font-size="18">Open source  ·  Privacy-first  ·  Windows 10/11</text>
+
+  <g filter="url(#shadow)">
+    <rect x="682" y="94" width="528" height="450" rx="18" fill="#0b1114" stroke="#344149"/>
+    <rect x="682" y="94" width="528" height="48" rx="18" fill="#11191d"/>
+    <rect x="682" y="124" width="528" height="18" fill="#11191d"/>
+    <g fill="none" stroke="#20baf0" stroke-width="2">
+      <rect x="703" y="109" width="18" height="13" rx="2"/>
+      <rect x="709" y="115" width="18" height="13" rx="2"/>
+    </g>
+    <text x="741" y="126" fill="#e9f1f4" font-family="Segoe UI, Arial" font-size="14">Default Layout</text>
+    <rect x="1053" y="105" width="132" height="27" rx="6" fill="url(#accent)"/>
+    <text x="1074" y="124" fill="#fff" font-family="Segoe UI, Arial" font-size="12">▷  Restore layout</text>
+
+    <text x="706" y="178" fill="#eef4f6" font-family="Segoe UI, Arial" font-size="15" font-weight="600">Captured windows</text>
+    <g font-family="Segoe UI, Arial">
+      <rect x="706" y="198" width="480" height="63" rx="8" fill="#141d21" stroke="#29363c"/>
+      <rect x="720" y="213" width="32" height="32" rx="6" fill="#166b46"/>
+      <text x="731" y="235" fill="#fff" font-size="15" font-weight="700">X</text>
+      <text x="768" y="222" fill="#e9f0f3" font-size="13" font-weight="600">Budget FY26.xlsx</text>
+      <text x="768" y="243" fill="#8fa1a9" font-size="11">Microsoft Excel</text>
+      <rect x="1042" y="216" width="119" height="26" rx="13" fill="#173927" stroke="#2a7048"/>
+      <text x="1061" y="234" fill="#78d99a" font-size="11">File identified</text>
+
+      <rect x="706" y="272" width="480" height="63" rx="8" fill="#141d21" stroke="#29363c"/>
+      <rect x="720" y="287" width="32" height="32" rx="6" fill="#1c6ab8"/>
+      <text x="731" y="309" fill="#fff" font-size="14" font-weight="700">A</text>
+      <text x="768" y="296" fill="#e9f0f3" font-size="13" font-weight="600">Site Plan.dwg</text>
+      <text x="768" y="317" fill="#8fa1a9" font-size="11">AutoCAD</text>
+      <rect x="1042" y="290" width="119" height="26" rx="13" fill="#173927" stroke="#2a7048"/>
+      <text x="1061" y="308" fill="#78d99a" font-size="11">File identified</text>
+
+      <rect x="706" y="346" width="480" height="63" rx="8" fill="#141d21" stroke="#7a5a18"/>
+      <rect x="720" y="361" width="32" height="32" rx="6" fill="#6c5518"/>
+      <text x="731" y="383" fill="#fff" font-size="14" font-weight="700">T</text>
+      <text x="768" y="370" fill="#e9f0f3" font-size="13" font-weight="600">Training Delivery</text>
+      <text x="768" y="391" fill="#8fa1a9" font-size="11">No file identified</text>
+      <rect x="1049" y="364" width="112" height="26" rx="13" fill="#3a2e12" stroke="#8d6918"/>
+      <text x="1066" y="382" fill="#f7c757" font-size="11">Needs review</text>
+    </g>
+
+    <rect x="706" y="433" width="480" height="82" rx="9" fill="#11191d" stroke="#2a353b"/>
+    <text x="724" y="462" fill="#edf4f6" font-family="Segoe UI, Arial" font-size="14" font-weight="600">Restore readiness</text>
+    <text x="1077" y="462" fill="#78d99a" font-family="Segoe UI, Arial" font-size="12">2 of 3 ready</text>
+    <text x="724" y="490" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="12">Review every item before restoring.</text>
+  </g>
+</svg>
