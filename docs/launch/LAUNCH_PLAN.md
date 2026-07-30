@@ -2,7 +2,7 @@
 
 ## Current status
 
-Do not launch Workspace Recall broadly yet. The repository presentation and
+Do not launch Space Recorder broadly yet. The repository presentation and
 community surfaces are ready, but there is no signed, clean-machine-tested
 public package. The project remains source-only.
 

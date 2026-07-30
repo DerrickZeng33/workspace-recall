@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible Workspace Recall problem using sanitized data.
+description: Report a reproducible Space Recorder problem using sanitized data.
 title: "[Bug]: "
 labels:
   - bug

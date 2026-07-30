@@ -1,6 +1,6 @@
 # Roadmap
 
-Workspace Recall is an early, source-only prototype. Roadmap items describe
+Space Recorder is an early, source-only prototype. Roadmap items describe
 direction, not promised dates.
 
 ## Current

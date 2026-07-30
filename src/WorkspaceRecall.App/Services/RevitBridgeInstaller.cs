@@ -77,12 +77,12 @@ public sealed class RevitBridgeInstaller
                 <?xml version="1.0" encoding="utf-8" standalone="no"?>
                 <RevitAddIns>
                   <AddIn Type="Application">
-                    <Name>Workspace Recall</Name>
+                    <Name>Space Recorder</Name>
                     <Assembly>{escapedAssemblyPath}</Assembly>
                     <AddInId>{AddInId}</AddInId>
                     <FullClassName>WorkspaceRecall.RevitAddin.RevitBridgeApplication</FullClassName>
                     <VendorId>WRCL</VendorId>
-                    <VendorDescription>Workspace Recall on-demand local document path bridge</VendorDescription>
+                    <VendorDescription>Space Recorder on-demand local document path bridge</VendorDescription>
                   </AddIn>
                 </RevitAddIns>
                 """;

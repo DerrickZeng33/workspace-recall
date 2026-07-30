@@ -1,4 +1,4 @@
-# Workspace Recall
+# Space Recorder
 
 Capture and restore a multi-monitor Windows workspace, including verified
 document paths when applications expose them.
@@ -8,16 +8,16 @@ document paths when applications expose them.
 > releases. See the [release checklist](RELEASE_CHECKLIST.md) for the signing
 > and clean-machine gates required before publication.
 
-![Synthetic Workspace Recall interface preview](docs/assets/interface-preview.png)
+![Synthetic Space Recorder interface preview](docs/assets/interface-preview.png)
 
 _Synthetic interface preview using fictional files and paths. It illustrates
 the current workflow without capturing a real desktop._
 
-## Why Workspace Recall
+## Why Space Recorder
 
-Restoring window positions is only part of restoring a workspace. Workspace
-Recall also attempts to identify the exact file behind each captured window,
-then makes incomplete captures visible before restoration:
+Restoring window positions is only part of restoring a workspace. Space
+Recorder also attempts to identify the exact file behind each captured
+window, then makes incomplete captures visible before restoration:
 
 - **File identified** — a verified existing file path can be reopened.
 - **Program only** — the user accepts reopening the application without
@@ -61,7 +61,7 @@ This separates two different questions:
 
 Microsoft PowerToys Workspaces restores application positions and supports
 manually configured command-line arguments, including document paths.
-Workspace Recall focuses on attempting automatic, verified document-path
+Space Recorder focuses on attempting automatic, verified document-path
 detection for each captured window and showing its readiness before restore.
 
 See Microsoft's
@@ -70,7 +70,7 @@ for the official PowerToys capabilities.
 
 ## Privacy and security
 
-Workspace Recall has no built-in network communication, telemetry, analytics,
+Space Recorder has no built-in network communication, telemetry, analytics,
 accounts, uploads, input hooks, startup service, or remote-control feature. It
 does not request administrator privileges.
 
@@ -118,6 +118,27 @@ explicitly:
 If the Revit API assemblies are unavailable, the main app is still published
 without the optional helper.
 
+## Prepare a Microsoft Store package
+
+Maintainers can build and validate an unsigned, self-contained x64 Store
+package:
+
+```powershell
+.\scripts\build-msix.ps1 -PackageVersion 1.0.0.0
+```
+
+The script creates an `.msix` and `.msixupload` under
+`dist\SpaceRecorder-msix`. It does not install, sign, upload, or publish
+anything. The Microsoft Store signs an accepted package during its publishing
+process.
+
+The optional Revit helper is intentionally excluded from the Store package.
+The helper exchanges local bridge files with Revit, while normal MSIX file
+virtualization can isolate those files from an external Revit process.
+Avoiding the restricted `unvirtualizedResources` capability keeps the Store
+package's security boundary narrow. The source-built portable version can
+still include the helper when the Revit API is available.
+
 ## Verify
 
 Run the automated behavior tests:
@@ -152,5 +173,5 @@ dotnet run --project .\tests\WorkspaceRecall.Tests\WorkspaceRecall.Tests.csproj 
 
 [MIT](LICENSE)
 
-If Workspace Recall solves a problem you have, star the repository to save it
+If Space Recorder solves a problem you have, star the repository to save it
 for later and help other Windows users discover it.

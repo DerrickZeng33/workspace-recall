@@ -1,6 +1,6 @@
 # Security policy
 
-Workspace Recall is an early Windows prototype. No public binary release is
+Space Recorder is an early Windows prototype. No public binary release is
 currently provided. Builds are not code-signed, so only run a build you created
 from source and reviewed.
 
@@ -20,7 +20,7 @@ impact, and any relevant logs with personal paths or document names redacted.
 
 ## Security boundaries
 
-Workspace Recall:
+Space Recorder:
 
 - does not expose a network listener or remote-control interface;
 - does not require administrator privileges;

@@ -9,6 +9,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$sourceRoot = Split-Path -Parent $PSScriptRoot
 $resolvedPackage = Resolve-Path -LiteralPath $PackagePath -ErrorAction Stop
 if (-not (Test-Path -LiteralPath $resolvedPackage.Path -PathType Container)) {
     throw "Package path must be a directory."
@@ -78,27 +79,40 @@ foreach ($entry in $entries) {
     }
 }
 
-$privateContentPatterns = @(
+$privateContentPatterns = [Collections.Generic.List[string]]::new()
+@(
     "C:\Users\",
-    "Dropbox\\Apps",
-    "Third Party Programs",
     "@gmail.com",
     "@hotmail.com",
     "@outlook.com"
-)
+) | ForEach-Object { $privateContentPatterns.Add($_) }
+if (-not [string]::IsNullOrWhiteSpace($env:USERPROFILE)) {
+    $privateContentPatterns.Add($env:USERPROFILE)
+}
+$privateContentPatterns.Add([IO.Path]::GetFullPath($sourceRoot))
+
 $textExtensions = [Collections.Generic.HashSet[string]]::new(
     [StringComparer]::OrdinalIgnoreCase)
 @(".config", ".json", ".txt", ".xml") |
     ForEach-Object { [void]$textExtensions.Add($_) }
+$singleByteEncoding = [Text.Encoding]::GetEncoding(28591)
 
 foreach ($file in $entries.Where({ -not $_.PSIsContainer })) {
-    if (-not $textExtensions.Contains($file.Extension)) {
+    $isAppBinary = $file.Name -match "^WorkspaceRecall\.(exe|dll)$"
+    if (-not $isAppBinary -and -not $textExtensions.Contains($file.Extension)) {
         continue
     }
 
-    $content = Get-Content -LiteralPath $file.FullName -Raw
+    $bytes = [IO.File]::ReadAllBytes($file.FullName)
+    $singleByteContent = $singleByteEncoding.GetString($bytes)
+    $unicodeContent = [Text.Encoding]::Unicode.GetString($bytes)
     foreach ($pattern in $privateContentPatterns) {
-        if ($content.Contains($pattern, [StringComparison]::OrdinalIgnoreCase)) {
+        if ($singleByteContent.Contains(
+                $pattern,
+                [StringComparison]::OrdinalIgnoreCase) -or
+            $unicodeContent.Contains(
+                $pattern,
+                [StringComparison]::OrdinalIgnoreCase)) {
             $relativePath = [IO.Path]::GetRelativePath(
                 $packageRoot,
                 $file.FullName)
