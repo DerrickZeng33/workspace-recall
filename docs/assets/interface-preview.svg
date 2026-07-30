@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <defs>
+    <linearGradient id="appBackground" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1013"/>
+      <stop offset="1" stop-color="#11181c"/>
+    </linearGradient>
+    <linearGradient id="primaryButton" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16a9f0"/>
+      <stop offset="1" stop-color="#087cc3"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity=".42"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="900" fill="#070a0c"/>
+  <rect x="28" y="24" width="1384" height="852" rx="16" fill="url(#appBackground)" stroke="#293238" filter="url(#shadow)"/>
+
+  <rect x="28" y="24" width="1384" height="48" rx="16" fill="#0c1114"/>
+  <rect x="28" y="56" width="1384" height="16" fill="#0c1114"/>
+  <line x1="28" y1="72" x2="1412" y2="72" stroke="#283137"/>
+  <g fill="none" stroke="#19b9f3" stroke-width="2">
+    <rect x="49" y="39" width="18" height="14" rx="2"/>
+    <rect x="55" y="44" width="18" height="14" rx="2"/>
+  </g>
+  <text x="84" y="55" fill="#edf4f7" font-family="Segoe UI, Arial" font-size="15">Workspace Recall</text>
+  <text x="1334" y="55" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="20">—</text>
+  <rect x="1364" y="40" width="13" height="13" fill="none" stroke="#9eabb1"/>
+  <text x="1391" y="56" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="21">×</text>
+
+  <rect x="28" y="72" width="1384" height="84" fill="#11181c"/>
+  <line x1="28" y1="156" x2="1412" y2="156" stroke="#283137"/>
+  <text x="54" y="124" fill="#f5f8fa" font-family="Segoe UI, Arial" font-size="27" font-weight="600">Default Layout</text>
+  <circle cx="260" cy="116" r="5" fill="#61d58a"/>
+  <text x="275" y="122" fill="#99a8af" font-family="Segoe UI, Arial" font-size="14">Captured moments ago</text>
+  <rect x="1016" y="91" width="184" height="46" rx="7" fill="#172025" stroke="#37434a"/>
+  <text x="1053" y="120" fill="#e6edf0" font-family="Segoe UI, Arial" font-size="15">↻  Capture current layout</text>
+  <rect x="1216" y="91" width="170" height="46" rx="7" fill="url(#primaryButton)"/>
+  <text x="1253" y="120" fill="#fff" font-family="Segoe UI, Arial" font-size="15">▷  Restore layout</text>
+
+  <rect x="28" y="156" width="908" height="662" fill="#0b1013"/>
+  <line x1="936" y1="156" x2="936" y2="818" stroke="#283137"/>
+  <text x="54" y="199" fill="#eef4f6" font-family="Segoe UI, Arial" font-size="17" font-weight="600">Captured windows</text>
+  <circle cx="603" cy="193" r="5" fill="#61d58a"/>
+  <text x="616" y="198" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="13">File identified</text>
+  <circle cx="720" cy="193" r="5" fill="#18aef0"/>
+  <text x="733" y="198" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="13">Program only</text>
+  <circle cx="826" cy="193" r="5" fill="#f5b942"/>
+  <text x="839" y="198" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="13">Needs review</text>
+
+  <g font-family="Segoe UI, Arial">
+    <rect x="54" y="222" width="856" height="58" rx="8" fill="#151d21" stroke="#263238"/>
+    <rect x="69" y="236" width="30" height="30" rx="6" fill="#166b46"/>
+    <text x="79" y="257" fill="#fff" font-size="15" font-weight="700">X</text>
+    <text x="117" y="247" fill="#e9f0f3" font-size="14" font-weight="600">Microsoft Excel</text>
+    <text x="117" y="267" fill="#96a5ac" font-size="12">Budget FY26.xlsx</text>
+    <rect x="455" y="239" width="118" height="25" rx="13" fill="#173927" stroke="#2a7048"/>
+    <text x="474" y="256" fill="#78d99a" font-size="12">File identified</text>
+    <text x="738" y="256" fill="#b3c0c6" font-size="13">Display 1 · Left half</text>
+
+    <rect x="54" y="290" width="856" height="58" rx="8" fill="#151d21" stroke="#263238"/>
+    <rect x="69" y="304" width="30" height="30" rx="6" fill="#245bad"/>
+    <text x="77" y="325" fill="#fff" font-size="14" font-weight="700">W</text>
+    <text x="117" y="315" fill="#e9f0f3" font-size="14" font-weight="600">Microsoft Word</text>
+    <text x="117" y="335" fill="#96a5ac" font-size="12">Training Plan.docx</text>
+    <rect x="455" y="307" width="118" height="25" rx="13" fill="#173927" stroke="#2a7048"/>
+    <text x="474" y="324" fill="#78d99a" font-size="12">File identified</text>
+    <text x="728" y="324" fill="#b3c0c6" font-size="13">Display 1 · Right half</text>
+
+    <rect x="54" y="358" width="856" height="58" rx="8" fill="#151d21" stroke="#263238"/>
+    <rect x="69" y="372" width="30" height="30" rx="6" fill="#1c6ab8"/>
+    <text x="78" y="393" fill="#fff" font-size="14" font-weight="700">A</text>
+    <text x="117" y="383" fill="#e9f0f3" font-size="14" font-weight="600">AutoCAD</text>
+    <text x="117" y="403" fill="#96a5ac" font-size="12">Site Plan.dwg</text>
+    <rect x="455" y="375" width="118" height="25" rx="13" fill="#173927" stroke="#2a7048"/>
+    <text x="474" y="392" fill="#78d99a" font-size="12">File identified</text>
+    <text x="752" y="392" fill="#b3c0c6" font-size="13">Display 2 · Full</text>
+
+    <rect x="54" y="426" width="856" height="58" rx="8" fill="#151d21" stroke="#7a5a18"/>
+    <rect x="69" y="440" width="30" height="30" rx="6" fill="#6c5518"/>
+    <text x="79" y="461" fill="#fff" font-size="14" font-weight="700">T</text>
+    <text x="117" y="451" fill="#e9f0f3" font-size="14" font-weight="600">Training Delivery</text>
+    <text x="117" y="471" fill="#96a5ac" font-size="12">No file identified</text>
+    <rect x="455" y="443" width="108" height="25" rx="13" fill="#3a2e12" stroke="#8d6918"/>
+    <text x="472" y="460" fill="#f7c757" font-size="12">Needs review</text>
+    <text x="752" y="460" fill="#b3c0c6" font-size="13">Display 3 · Full</text>
+  </g>
+
+  <text x="54" y="535" fill="#eef4f6" font-family="Segoe UI, Arial" font-size="17" font-weight="600">Saved screen arrangement</text>
+  <g>
+    <rect x="54" y="560" width="258" height="160" rx="10" fill="#151d21" stroke="#3a474e" stroke-width="2"/>
+    <rect x="68" y="577" width="111" height="111" rx="6" fill="#0c1317" stroke="#2c3940"/>
+    <rect x="187" y="577" width="111" height="111" rx="6" fill="#0c1317" stroke="#2c3940"/>
+    <rect x="77" y="591" width="93" height="83" rx="4" fill="#163827"/>
+    <rect x="196" y="591" width="93" height="83" rx="4" fill="#17365e"/>
+    <text x="95" y="638" fill="#9eddb5" font-family="Segoe UI, Arial" font-size="13">Budget</text>
+    <text x="210" y="638" fill="#a8c8f1" font-family="Segoe UI, Arial" font-size="13">Training</text>
+    <text x="147" y="747" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="13">Display 1</text>
+
+    <rect x="332" y="560" width="258" height="160" rx="10" fill="#151d21" stroke="#3a474e" stroke-width="2"/>
+    <rect x="346" y="577" width="230" height="111" rx="6" fill="#0c1317" stroke="#2c3940"/>
+    <path d="M362 654 L389 615 L420 641 L450 603 L486 635 L526 594 L558 624" fill="none" stroke="#1aaeed" stroke-width="3"/>
+    <path d="M365 676 L409 645 L441 666 L480 625 L520 659 L559 618" fill="none" stroke="#f2bc44" stroke-width="2"/>
+    <text x="437" y="747" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="13">Display 2</text>
+
+    <rect x="610" y="560" width="258" height="160" rx="10" fill="#151d21" stroke="#3a474e" stroke-width="2"/>
+    <rect x="624" y="577" width="230" height="111" rx="6" fill="#0c1317" stroke="#7a5a18"/>
+    <rect x="642" y="594" width="194" height="16" rx="3" fill="#293237"/>
+    <rect x="642" y="620" width="152" height="10" rx="3" fill="#364148"/>
+    <rect x="642" y="640" width="174" height="10" rx="3" fill="#364148"/>
+    <circle cx="823" cy="665" r="8" fill="#f5b942"/>
+    <text x="715" y="747" fill="#9eabb1" font-family="Segoe UI, Arial" font-size="13">Display 3</text>
+  </g>
+
+  <rect x="936" y="156" width="476" height="662" fill="#10171a"/>
+  <text x="966" y="199" fill="#eef4f6" font-family="Segoe UI, Arial" font-size="17" font-weight="600">Selected window</text>
+  <rect x="966" y="226" width="42" height="42" rx="8" fill="#166b46"/>
+  <text x="979" y="255" fill="#fff" font-family="Segoe UI, Arial" font-size="20" font-weight="700">X</text>
+  <text x="1023" y="254" fill="#f0f5f7" font-family="Segoe UI, Arial" font-size="19" font-weight="600">Budget FY26.xlsx</text>
+
+  <g font-family="Segoe UI, Arial" font-size="14">
+    <text x="966" y="311" fill="#8f9da4">Application</text>
+    <text x="1118" y="311" fill="#e1e8eb">Microsoft Excel</text>
+    <text x="966" y="353" fill="#8f9da4">File path</text>
+    <text x="1118" y="353" fill="#e1e8eb">C:\Demo\Budget FY26.xlsx</text>
+    <text x="966" y="395" fill="#8f9da4">Detection status</text>
+    <rect x="1118" y="374" width="118" height="27" rx="14" fill="#173927" stroke="#2a7048"/>
+    <text x="1137" y="393" fill="#78d99a" font-size="12">File identified</text>
+    <text x="966" y="437" fill="#8f9da4">Placement</text>
+    <text x="1118" y="437" fill="#e1e8eb">Display 1 · Left half</text>
+    <text x="966" y="479" fill="#8f9da4">State</text>
+    <text x="1118" y="479" fill="#e1e8eb">Normal</text>
+  </g>
+  <rect x="966" y="510" width="176" height="42" rx="7" fill="#172025" stroke="#37434a"/>
+  <text x="990" y="537" fill="#e5edef" font-family="Segoe UI, Arial" font-size="14">□  Open file location</text>
+
+  <line x1="936" y1="585" x2="1412" y2="585" stroke="#283137"/>
+  <text x="966" y="627" fill="#eef4f6" font-family="Segoe UI, Arial" font-size="17" font-weight="600">Restore readiness</text>
+  <text x="1287" y="627" fill="#78d99a" font-family="Segoe UI, Arial" font-size="14">3 of 4 ready</text>
+  <rect x="966" y="653" width="416" height="106" rx="9" fill="#2a2110" stroke="#8d6918"/>
+  <circle cx="992" cy="681" r="10" fill="#f5b942"/>
+  <text x="988" y="686" fill="#241a08" font-family="Segoe UI, Arial" font-size="14" font-weight="700">!</text>
+  <text x="1014" y="682" fill="#f2f5f6" font-family="Segoe UI, Arial" font-size="14" font-weight="600">Training Delivery needs review</text>
+  <text x="1014" y="707" fill="#b9c2c6" font-family="Segoe UI, Arial" font-size="13">Choose a file, confirm Program only, or exclude it.</text>
+  <rect x="1233" y="722" width="128" height="27" rx="5" fill="#151d21" stroke="#b7891e"/>
+  <text x="1260" y="741" fill="#f0f4f5" font-family="Segoe UI, Arial" font-size="12">Choose file…</text>
+
+  <rect x="28" y="818" width="1384" height="58" rx="0 0 16 16" fill="#10171a"/>
+  <line x1="28" y1="818" x2="1412" y2="818" stroke="#283137"/>
+  <text x="54" y="853" fill="#a4b0b6" font-family="Segoe UI, Arial" font-size="13">4 windows  ·  3 displays  ·</text>
+  <text x="193" y="853" fill="#f5b942" font-family="Segoe UI, Arial" font-size="13">1 item needs attention</text>
+  <text x="1157" y="853" fill="#a4b0b6" font-family="Segoe UI, Arial" font-size="13">Synthetic interface preview  ·  Paths stay on this PC</text>
+</svg>

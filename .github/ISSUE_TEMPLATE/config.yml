@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and general feedback
+    url: https://github.com/DerrickZeng33/workspace-recall/discussions
+    about: Use GitHub Discussions for questions and ideas that are not yet scoped.
+  - name: Report a security vulnerability
+    url: https://github.com/DerrickZeng33/workspace-recall/security/advisories/new
+    about: Send sensitive security information privately.
