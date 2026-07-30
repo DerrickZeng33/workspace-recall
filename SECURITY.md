@@ -6,10 +6,13 @@ from source and reviewed.
 
 ## Report a vulnerability
 
-Do not disclose a suspected vulnerability in a public issue. Use GitHub's
-private vulnerability reporting feature under the repository's **Security**
-tab. If that feature is unavailable, contact the maintainer privately through
-their GitHub profile before sharing technical details.
+While this repository is private, collaborators should open an issue here;
+that issue is visible only to repository collaborators. Do not copy sensitive
+details to a public repository or discussion.
+
+Before changing this repository to public visibility, enable GitHub's private
+vulnerability reporting feature and update these instructions so external
+reporters have a private contact channel.
 
 Include the affected commit, Windows version, reproduction steps, observed
 impact, and any relevant logs with personal paths or document names redacted.
