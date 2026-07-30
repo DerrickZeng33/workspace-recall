@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore .\tests\WorkspaceRecall.Tests\WorkspaceRecall.Tests.csproj
+
+      - name: Check formatting
+        run: |
+          dotnet format .\src\WorkspaceRecall.App\WorkspaceRecall.App.csproj --verify-no-changes --no-restore
+          dotnet format .\tests\WorkspaceRecall.Tests\WorkspaceRecall.Tests.csproj --verify-no-changes --no-restore
+
+      - name: Build with analyzers
+        run: dotnet build .\tests\WorkspaceRecall.Tests\WorkspaceRecall.Tests.csproj -c Release --no-restore -p:EnableNETAnalyzers=true -p:AnalysisLevel=latest -p:TreatWarningsAsErrors=true
+
+      - name: Test
+        run: dotnet run --project .\tests\WorkspaceRecall.Tests\WorkspaceRecall.Tests.csproj -c Release --no-build
