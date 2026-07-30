@@ -51,4 +51,4 @@ Contributors can copy this row when adding a verified test result:
 
 | Application | Application Version | File Format | Capture Status | Restore / Placement Result | Test Date | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| | | | | | | |
+| | | | | | | | 
