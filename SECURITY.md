@@ -6,13 +6,14 @@ from source and reviewed.
 
 ## Report a vulnerability
 
-While this repository is private, collaborators should open an issue here;
-that issue is visible only to repository collaborators. Do not copy sensitive
-details to a public repository or discussion.
+Use **Report a vulnerability** on the repository's **Security** tab. This
+creates a private report that can be discussed with the maintainer without
+disclosing it publicly.
 
-Before changing this repository to public visibility, enable GitHub's private
-vulnerability reporting feature and update these instructions so external
-reporters have a private contact channel.
+Do not report a suspected vulnerability in a public issue, pull request, or
+discussion. While the repository remains private during development,
+collaborators may instead open an issue because those issues are visible only
+to repository collaborators.
 
 Include the affected commit, Windows version, reproduction steps, observed
 impact, and any relevant logs with personal paths or document names redacted.
@@ -24,8 +25,8 @@ Workspace Recall:
 - does not expose a network listener or remote-control interface;
 - does not require administrator privileges;
 - stores layout information locally;
-- opens captured, user-accessible applications and documents only when the user selects
-  **Restore layout**; and
+- opens captured, user-accessible applications and documents only when the
+  user selects **Restore layout**; and
 - can move, resize, minimize, maximize, or restore matched windows as part of
   that requested restore operation.
 
