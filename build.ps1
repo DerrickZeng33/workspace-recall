@@ -10,6 +10,20 @@ $revitProject = Join-Path $projectRoot "src\WorkspaceRecall.RevitAddin\Workspace
 $appProject = Join-Path $projectRoot "src\WorkspaceRecall.App\WorkspaceRecall.App.csproj"
 $outputDirectory = Join-Path $projectRoot "dist\WorkspaceRecall-win-x64"
 $revitOutput = Join-Path $projectRoot "src\WorkspaceRecall.RevitAddin\bin\$Configuration\net8.0-windows\WorkspaceRecall.RevitAddin.dll"
+$packageVerifier = Join-Path $projectRoot "scripts\verify-release-package.ps1"
+
+$resolvedProjectRoot = [IO.Path]::GetFullPath($projectRoot) +
+    [IO.Path]::DirectorySeparatorChar
+$resolvedOutputDirectory = [IO.Path]::GetFullPath($outputDirectory)
+if (-not $resolvedOutputDirectory.StartsWith(
+        $resolvedProjectRoot,
+        [StringComparison]::OrdinalIgnoreCase)) {
+    throw "Refusing to prepare a publish directory outside the project."
+}
+
+if (Test-Path -LiteralPath $resolvedOutputDirectory) {
+    Remove-Item -LiteralPath $resolvedOutputDirectory -Recurse -Force
+}
 
 if ([string]::IsNullOrWhiteSpace($RevitApiPath)) {
     $registryRoots = @(
@@ -69,11 +83,11 @@ if ($revitAvailable) {
     }
 }
 elseif (Test-Path -LiteralPath $revitBundleDirectory) {
-    $resolvedOutputDirectory = [IO.Path]::GetFullPath($outputDirectory) +
+    $resolvedPublishDirectory = [IO.Path]::GetFullPath($outputDirectory) +
         [IO.Path]::DirectorySeparatorChar
     $resolvedRevitBundleDirectory = [IO.Path]::GetFullPath($revitBundleDirectory)
     if (-not $resolvedRevitBundleDirectory.StartsWith(
-            $resolvedOutputDirectory,
+            $resolvedPublishDirectory,
             [StringComparison]::OrdinalIgnoreCase)) {
         throw "Refusing to remove a Revit bundle outside the publish directory."
     }
@@ -83,6 +97,8 @@ elseif (Test-Path -LiteralPath $revitBundleDirectory) {
 
 Get-ChildItem -LiteralPath $outputDirectory -Recurse -Filter *.pdb |
     Remove-Item -Force
+
+& $packageVerifier -PackagePath $outputDirectory
 
 Write-Output ""
 Write-Output "Portable build ready:"
