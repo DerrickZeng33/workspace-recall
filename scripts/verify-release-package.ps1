@@ -9,12 +9,30 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$sourceRoot = Split-Path -Parent $PSScriptRoot
 $resolvedPackage = Resolve-Path -LiteralPath $PackagePath -ErrorAction Stop
 if (-not (Test-Path -LiteralPath $resolvedPackage.Path -PathType Container)) {
     throw "Package path must be a directory."
 }
 
 $packageRoot = [IO.Path]::GetFullPath($resolvedPackage.Path)
+$packageRootPrefix = $packageRoot.TrimEnd(
+    [IO.Path]::DirectorySeparatorChar,
+    [IO.Path]::AltDirectorySeparatorChar) +
+    [IO.Path]::DirectorySeparatorChar
+
+function Get-PackageRelativePath {
+    param([Parameter(Mandatory)][string]$Path)
+
+    $resolvedPath = [IO.Path]::GetFullPath($Path)
+    if (-not $resolvedPath.StartsWith(
+            $packageRootPrefix,
+            [StringComparison]::OrdinalIgnoreCase)) {
+        throw "Entry resolves outside the package: $resolvedPath"
+    }
+    return $resolvedPath.Substring($packageRootPrefix.Length)
+}
+
 $requiredFiles = @(
     "WorkspaceRecall.exe",
     "WorkspaceRecall.dll",
@@ -61,10 +79,7 @@ $entries = Get-ChildItem -LiteralPath $packageRoot -Recurse -Force
 $violations = [Collections.Generic.List[string]]::new()
 
 foreach ($entry in $entries) {
-    $relativePath = [IO.Path]::GetRelativePath($packageRoot, $entry.FullName)
-    if ($relativePath.StartsWith("..", [StringComparison]::Ordinal)) {
-        $violations.Add("Entry resolves outside the package: $relativePath")
-    }
+    $relativePath = Get-PackageRelativePath $entry.FullName
     if (($entry.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) {
         $violations.Add("Package contains a link or reparse point: $relativePath")
     }
@@ -78,30 +93,41 @@ foreach ($entry in $entries) {
     }
 }
 
-$privateContentPatterns = @(
+$privateContentPatterns = [Collections.Generic.List[string]]::new()
+@(
     "C:\Users\",
-    "Dropbox\\Apps",
-    "Third Party Programs",
     "@gmail.com",
     "@hotmail.com",
     "@outlook.com"
-)
+) | ForEach-Object { $privateContentPatterns.Add($_) }
+if (-not [string]::IsNullOrWhiteSpace($env:USERPROFILE)) {
+    $privateContentPatterns.Add($env:USERPROFILE)
+}
+$privateContentPatterns.Add([IO.Path]::GetFullPath($sourceRoot))
+
 $textExtensions = [Collections.Generic.HashSet[string]]::new(
     [StringComparer]::OrdinalIgnoreCase)
 @(".config", ".json", ".txt", ".xml") |
     ForEach-Object { [void]$textExtensions.Add($_) }
+$singleByteEncoding = [Text.Encoding]::GetEncoding(28591)
 
 foreach ($file in $entries.Where({ -not $_.PSIsContainer })) {
-    if (-not $textExtensions.Contains($file.Extension)) {
+    $isAppBinary = $file.Name -match "^WorkspaceRecall\.(exe|dll)$"
+    if (-not $isAppBinary -and -not $textExtensions.Contains($file.Extension)) {
         continue
     }
 
-    $content = Get-Content -LiteralPath $file.FullName -Raw
+    $bytes = [IO.File]::ReadAllBytes($file.FullName)
+    $singleByteContent = $singleByteEncoding.GetString($bytes)
+    $unicodeContent = [Text.Encoding]::Unicode.GetString($bytes)
     foreach ($pattern in $privateContentPatterns) {
-        if ($content.Contains($pattern, [StringComparison]::OrdinalIgnoreCase)) {
-            $relativePath = [IO.Path]::GetRelativePath(
-                $packageRoot,
-                $file.FullName)
+        if ($singleByteContent.IndexOf(
+                $pattern,
+                [StringComparison]::OrdinalIgnoreCase) -ge 0 -or
+            $unicodeContent.IndexOf(
+                $pattern,
+                [StringComparison]::OrdinalIgnoreCase) -ge 0) {
+            $relativePath = Get-PackageRelativePath $file.FullName
             $violations.Add(
                 "Potential private machine or contact data in: $relativePath")
             break
@@ -134,7 +160,7 @@ if (-not $RequireSignature) {
 }
 
 $files | ForEach-Object {
-    $relativePath = [IO.Path]::GetRelativePath($packageRoot, $_.FullName)
+    $relativePath = Get-PackageRelativePath $_.FullName
     $hash = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash
     Write-Output "$hash  $relativePath"
 }

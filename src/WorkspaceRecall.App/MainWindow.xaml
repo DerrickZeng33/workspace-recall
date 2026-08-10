@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Workspace Recall"
+        Title="Space Recorder"
         Icon="/Assets/workspace-recall-icon.png"
         Width="1440"
         Height="1024"
@@ -52,7 +52,7 @@
                     <TextBlock Margin="10,0,0,0"
                                VerticalAlignment="Center"
                                FontSize="14"
-                               Text="Workspace Recall" />
+                               Text="Space Recorder" />
                 </StackPanel>
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"

@@ -95,7 +95,7 @@ public partial class MainWindow : Window
             MessageBox.Show(
                 this,
                 exception.Message,
-                "Workspace Recall could not capture this layout",
+                "Space Recorder could not capture this layout",
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
         }
@@ -126,7 +126,7 @@ public partial class MainWindow : Window
                     $"• {window.DisplayApplicationName} — {window.DisplayFileName}"));
             var result = MessageBox.Show(
                 this,
-                $"Workspace Recall will restore {_layout.RestorableCount} ready windows and skip these {skippedWindows.Count} windows:{Environment.NewLine}{Environment.NewLine}{skippedNames}",
+                $"Space Recorder will restore {_layout.RestorableCount} ready windows and skip these {skippedWindows.Count} windows:{Environment.NewLine}{Environment.NewLine}{skippedNames}",
                 "Some captured windows need review",
                 MessageBoxButton.OKCancel,
                 MessageBoxImage.Information);
@@ -149,7 +149,7 @@ public partial class MainWindow : Window
                 MessageBox.Show(
                     this,
                     string.Join(Environment.NewLine, summary.Errors),
-                    "Workspace Recall restored the layout with notices",
+                    "Space Recorder restored the layout with notices",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
             }
@@ -162,7 +162,7 @@ public partial class MainWindow : Window
             MessageBox.Show(
                 this,
                 exception.Message,
-                "Workspace Recall could not restore this layout",
+                "Space Recorder could not restore this layout",
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
         }
@@ -242,7 +242,7 @@ public partial class MainWindow : Window
 
         var result = MessageBox.Show(
             this,
-            $"Workspace Recall will reopen {window.DisplayApplicationName} itself and restore its window position.{Environment.NewLine}{Environment.NewLine}Its internal content, tabs, sessions, and unsaved data may not return.",
+            $"Space Recorder will reopen {window.DisplayApplicationName} itself and restore its window position.{Environment.NewLine}{Environment.NewLine}Its internal content, tabs, sessions, and unsaved data may not return.",
             "Mark this window as program only?",
             MessageBoxButton.OKCancel,
             MessageBoxImage.Information);

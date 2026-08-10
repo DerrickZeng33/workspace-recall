@@ -1,6 +1,6 @@
 # Growth measurement
 
-Workspace Recall does not add in-app analytics or telemetry for promotion.
+Space Recorder does not add in-app analytics or telemetry for promotion.
 Measure repository-level interest through GitHub's aggregate traffic and
 release data.
 
@@ -16,7 +16,7 @@ The script saves a timestamped JSON snapshot under
 `artifacts\metrics`. That directory is ignored by Git and remains inside the
 project. The snapshot contains repository counts, aggregate 14-day traffic,
 top referrers, popular paths, and release-asset download counts. It does not
-read Workspace Recall layouts or application data.
+read Space Recorder layouts or application data.
 
 Capture a baseline immediately before each outreach channel and compare it
 after one, seven, and fourteen days.

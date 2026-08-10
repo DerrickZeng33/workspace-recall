@@ -1,10 +1,10 @@
-# GitHub stars and public exposure for Workspace Recall
+# GitHub stars and public exposure for Space Recorder
 
 Research date: 30 July 2026
 
 ## Bottom line
 
-Do not spend the project's launch moment yet. The highest-leverage move is to make Workspace Recall safe and easy for a stranger to try, then promote it to a few highly relevant audiences with a clear demo and a genuine request for feedback. Stars should be the by-product of useful software and credible participation.
+Do not spend the project's launch moment yet. The highest-leverage move is to make Space Recorder safe and easy for a stranger to try, then promote it to a few highly relevant audiences with a clear demo and a genuine request for feedback. Stars should be the by-product of useful software and credible participation.
 
 GitHub documents that stars help people revisit projects, discover related content, and influence many repository rankings and Explore; it also explicitly bans fake or automated stars, rank abuse, engagement markets, and incentivized inauthentic engagement ([GitHub on stars](https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars), [GitHub Acceptable Use](https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies)).
 
@@ -71,7 +71,7 @@ These are durable acquisition channels for Windows users, not one-day launch spi
 1. **Release first:** ship the tryable version, screenshot/GIF, social preview, topics, community files, Discussions, and clean-machine verification.
 2. **Small beta:** ask a handful of relevant Windows users to install it and report friction. Ask for feedback, not stars.
 3. **One channel at a time:** stagger channels by several days so the maintainer can answer every substantive response and traffic is easier to attribute. This spacing is a measurement recommendation, not an algorithm claim.
-4. **Show HN:** only when the app is directly tryable. Use a factual title such as `Show HN: Workspace Recall – save and restore Windows workspace layouts`; explain the problem, why it was built, technical/privacy decisions, and limitations. Do not solicit votes or comments. HN also now asks users not to post AI-generated or AI-edited comments, so the maker should write the final submission and replies personally ([Show HN rules](https://news.ycombinator.com/showhn.html), [HN guidelines](https://news.ycombinator.com/newsguidelines.html)).
+4. **Show HN:** only when the app is directly tryable. Use a factual title such as `Show HN: Space Recorder – save and restore Windows workspace layouts`; explain the problem, why it was built, technical/privacy decisions, and limitations. Do not solicit votes or comments. HN also now asks users not to post AI-generated or AI-edited comments, so the maker should write the final submission and replies personally ([Show HN rules](https://news.ycombinator.com/showhn.html), [HN guidelines](https://news.ycombinator.com/newsguidelines.html)).
 5. **Product Hunt:** prepare the listing as a draft with direct download/product URL, tagline, gallery/demo, maker attribution, and a substantive maker first comment. Product Hunt explicitly says to ask people to visit and comment, not to upvote, and rejects paid or artificial traffic ([launch guide](https://www.producthunt.com/launch), [how to post](https://help.producthunt.com/en/articles/479557-how-to-post-a-product)).
 6. **Reddit:** choose only communities where workspace restoration, Windows utilities, WPF, CAD, Revit, or AutoCAD is directly relevant. Read each community's rules, disclose authorship, tailor the post to the community's problem, and ask moderators if uncertain. Reddit prohibits repetitive mass posting and unsolicited engagement ([Reddit spam policy](https://support.reddithelp.com/hc/en-us/articles/360043504051-Spam)).
 7. **Sustain:** publish meaningful releases, answer Discussions promptly, turn repeated questions into documentation, and share technical write-ups that are useful even to people who never install the app.

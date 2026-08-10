@@ -120,7 +120,7 @@ public sealed class RevitBridgeApplication : IExternalApplication
         }
         catch (Exception exception)
         {
-            Debug.WriteLine($"Workspace Recall Revit bridge: {exception.Message}");
+            Debug.WriteLine($"Space Recorder Revit bridge: {exception.Message}");
             return false;
         }
     }

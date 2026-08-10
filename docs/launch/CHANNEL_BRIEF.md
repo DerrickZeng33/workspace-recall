@@ -5,7 +5,7 @@ verbatim and does not authorize posting in the maintainer's name.
 
 ## One-sentence description
 
-Workspace Recall is a privacy-first Windows desktop app that captures
+Space Recorder is a privacy-first Windows desktop app that captures
 multi-monitor window layouts, attempts to identify verified document paths,
 and shows whether every captured item is ready before restoration.
 
@@ -31,7 +31,7 @@ and shows whether every captured item is ready before restoration.
 
 Microsoft PowerToys Workspaces restores application positions and supports
 manually configured command-line arguments, including document paths.
-Workspace Recall's distinct focus is attempting automatic verified path
+Space Recorder's distinct focus is attempting automatic verified path
 detection per captured window and making unresolved items visible before
 restore.
 

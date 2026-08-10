@@ -324,7 +324,7 @@ public sealed class DocumentPathResolver
                 matches[revitWindow.WindowHandle] = new Resolution(
                     state.DocumentPath!,
                     DetectionKind.ExactPath,
-                    "Read from the Workspace Recall Revit helper.");
+                    "Read from the Space Recorder Revit helper.");
             }
         }
         catch

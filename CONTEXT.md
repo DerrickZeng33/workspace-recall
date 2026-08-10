@@ -1,6 +1,6 @@
-# Workspace Recall
+# Space Recorder
 
-Workspace Recall describes user-facing Windows application windows, the identities needed to reopen them, and their readiness to participate in a saved workspace restoration.
+Space Recorder describes user-facing Windows application windows, the identities needed to reopen them, and their readiness to participate in a saved workspace restoration.
 
 ## Language
 

@@ -1,6 +1,6 @@
-# Contributing to Workspace Recall
+# Contributing to Space Recorder
 
-Thank you for helping improve Workspace Recall. The project is an early
+Thank you for helping improve Space Recorder. The project is an early
 Windows desktop prototype, so focused bug reports and small, verifiable
 changes are the most useful contributions.
 
@@ -15,7 +15,7 @@ changes are the most useful contributions.
 
 ## Protect private workspace data
 
-Never upload real Workspace Recall data without fully sanitizing it. In
+Never upload real Space Recorder data without fully sanitizing it. In
 particular, do not attach:
 
 - `%LOCALAPPDATA%\WorkspaceRecall` or `default-layout.json`;
