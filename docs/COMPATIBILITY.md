@@ -14,8 +14,8 @@ application, version, and format combination has been verified.
 Capture status records the file or program identity established during capture:
 
 - **File identified** — a verified existing file path was found.
-- **Program only** — the application can be reopened, but no file or internal
-  session is promised.
+- **Program only** — the user confirmed that the application should reopen
+  without a file; no internal session is promised.
 - **Needs review** — no file was identified and program-only restoration was
   not confirmed.
 - **Excluded** — the captured window was intentionally omitted from restore.
