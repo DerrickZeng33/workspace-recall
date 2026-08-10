@@ -58,23 +58,56 @@ try {
         throw "The Store-upload package must remain unsigned."
     }
 
+    $deniedNames = [Collections.Generic.HashSet[string]]::new(
+        [StringComparer]::OrdinalIgnoreCase)
+    @(
+        ".env",
+        "auth.json",
+        "cookies.txt",
+        "default-layout.json",
+        "revit-active.json",
+        "revit-request.json"
+    ) | ForEach-Object { [void]$deniedNames.Add($_) }
+
     $deniedExtensions = [Collections.Generic.HashSet[string]]::new(
         [StringComparer]::OrdinalIgnoreCase)
     @(
+        ".cer",
+        ".crt",
+        ".der",
         ".dmp",
         ".key",
         ".log",
         ".p12",
+        ".p7b",
+        ".p7c",
+        ".p7x",
         ".pdb",
         ".pem",
         ".pfx",
+        ".pvk",
+        ".snk",
+        ".sst",
         ".suo",
         ".user"
     ) | ForEach-Object { [void]$deniedExtensions.Add($_) }
     foreach ($entry in $entries) {
+        $normalizedName = $entry.FullName.Replace("\", "/")
         $extension = [IO.Path]::GetExtension($entry.FullName)
+        if ($deniedNames.Contains([IO.Path]::GetFileName($entry.FullName))) {
+            throw "MSIX package contains private layout data: $normalizedName"
+        }
+        if ($normalizedName -match '(^|/)(RevitAddin|previews)(/|$)' -or
+            $normalizedName -match
+                '(^|/)WorkspaceRecall\.RevitAddin[^/]*\.dll$') {
+            throw "MSIX package contains an excluded helper or preview: $normalizedName"
+        }
+        if ($extension -ieq ".png" -and
+            $requiredEntries -notcontains $normalizedName) {
+            throw "MSIX package contains an unexpected image: $normalizedName"
+        }
         if ($deniedExtensions.Contains($extension)) {
-            throw "MSIX package contains a denied file: $($entry.FullName)"
+            throw "MSIX package contains a denied file: $normalizedName"
         }
     }
 
@@ -215,12 +248,12 @@ try {
         $singleByteContent = $singleByteEncoding.GetString($bytes)
         $unicodeContent = [Text.Encoding]::Unicode.GetString($bytes)
         foreach ($pattern in $privateContentPatterns) {
-            if ($singleByteContent.Contains(
+            if ($singleByteContent.IndexOf(
                     $pattern,
-                    [StringComparison]::OrdinalIgnoreCase) -or
-                $unicodeContent.Contains(
+                    [StringComparison]::OrdinalIgnoreCase) -ge 0 -or
+                $unicodeContent.IndexOf(
                     $pattern,
-                    [StringComparison]::OrdinalIgnoreCase)) {
+                    [StringComparison]::OrdinalIgnoreCase) -ge 0) {
                 throw "Potential private data found in: $($entry.FullName)"
             }
         }

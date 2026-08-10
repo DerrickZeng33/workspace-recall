@@ -17,13 +17,14 @@ if ([string]::IsNullOrWhiteSpace($OutputDirectory)) {
 $revitOutput = Join-Path $projectRoot "src\WorkspaceRecall.RevitAddin\bin\$Configuration\net8.0-windows\WorkspaceRecall.RevitAddin.dll"
 $packageVerifier = Join-Path $projectRoot "scripts\verify-release-package.ps1"
 
-$resolvedProjectRoot = [IO.Path]::GetFullPath($projectRoot) +
+$resolvedDistRoot = [IO.Path]::GetFullPath(
+    (Join-Path $projectRoot "dist")) +
     [IO.Path]::DirectorySeparatorChar
 $resolvedOutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 if (-not $resolvedOutputDirectory.StartsWith(
-        $resolvedProjectRoot,
+        $resolvedDistRoot,
         [StringComparison]::OrdinalIgnoreCase)) {
-    throw "Refusing to prepare a publish directory outside the project."
+    throw "Refusing to prepare a publish directory outside the project dist directory."
 }
 
 if (Test-Path -LiteralPath $resolvedOutputDirectory) {

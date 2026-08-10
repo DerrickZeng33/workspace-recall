@@ -121,7 +121,8 @@ without the optional helper.
 ## Prepare a Microsoft Store package
 
 Maintainers can build and validate an unsigned, self-contained x64 Store
-package:
+package. This requires the Windows 10 or 11 SDK with the x64 `MakeAppx.exe`
+tool installed:
 
 ```powershell
 .\scripts\build-msix.ps1 -PackageVersion 1.0.0.0

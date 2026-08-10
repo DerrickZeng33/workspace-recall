@@ -50,8 +50,9 @@ approval.
 Partner Center. It omits the optional Revit helper and requests only the
 `runFullTrust` capability required by the WPF desktop app.
 
-`scripts\verify-msix-package.ps1` confirms that the package identity matches
-Partner Center, required files and image dimensions are present, private or
-key material is absent, and no capability other than `runFullTrust` is
-declared. The verifier also rejects a pre-existing package signature because
-Microsoft Store signs an accepted Store package.
+`scripts\verify-msix-package.ps1` confirms that the manifest matches the
+checked-in Store identity metadata, required files and image dimensions are
+present, private or key material is absent, and no capability other than
+`runFullTrust` is declared. Partner Center authoritatively validates the
+reserved identity during submission. The verifier also rejects a pre-existing
+package signature because Microsoft Store signs an accepted Store package.

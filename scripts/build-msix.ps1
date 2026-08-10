@@ -88,7 +88,7 @@ $manifest = $manifest.Replace(
     "__PUBLISHER_DISPLAY_NAME__",
     (ConvertTo-XmlText $storeIdentity.publisherDisplayName))
 $manifest = $manifest.Replace("__PACKAGE_VERSION__", $PackageVersion)
-if ($manifest.Contains("__", [StringComparison]::Ordinal)) {
+if ($manifest.IndexOf("__", [StringComparison]::Ordinal) -ge 0) {
     throw "The generated manifest still contains an unresolved token."
 }
 
