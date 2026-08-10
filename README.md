@@ -57,6 +57,10 @@ This separates two different questions:
   for reliable window placement.
 - No signed installer, automatic updater, or public binary is available.
 
+See the [application compatibility matrix](docs/COMPATIBILITY.md) for
+version-specific, privacy-safe test evidence. Its entries are evidence
+snapshots, not compatibility guarantees.
+
 ## How this differs from PowerToys Workspaces
 
 Microsoft PowerToys Workspaces restores application positions and supports
