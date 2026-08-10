@@ -17,6 +17,7 @@ var tests = new List<(string Name, Func<Task> Run)>
     ("Restore plan includes files and confirmed program-only windows", TestProgramOnlyRestorePlan),
     ("Program-only restore reserves a separate target for each captured window", TestProgramOnlyTargetReservation),
     ("Captured-window inventory uses a recognizable program name", TestInventoryProgramName),
+    ("Captured-window filename hints recognize common title separators", TestFilenameHints),
     ("Local capture data is restricted to the current Windows account", TestPrivateDataDirectory),
     ("Excluded and opt-out windows do not retain saved previews", TestPreviewDeletion),
     ("Restore rejects executable and script paths outside program-only mode", TestDangerousRestorePaths),
@@ -525,6 +526,30 @@ static Task TestInventoryProgramName()
     Assert(
         documentTitle.DisplayApplicationName == "Some App",
         "A document title must not replace the application name.");
+    return Task.CompletedTask;
+}
+
+static Task TestFilenameHints()
+{
+    var wordDocument = new CapturedWindow
+    {
+        WindowTitle = "Report.docx — Microsoft Word"
+    };
+    var autoCadDrawing = new CapturedWindow
+    {
+        WindowTitle = "Site Plan.dwg | AutoCAD"
+    };
+    var untitledWindow = new CapturedWindow();
+
+    Assert(
+        wordDocument.DisplayFileName == "Report.docx",
+        "An em dash should separate a document filename from its application name.");
+    Assert(
+        autoCadDrawing.DisplayFileName == "Site Plan.dwg",
+        "A vertical bar should separate a document filename from its application name.");
+    Assert(
+        untitledWindow.DisplayFileName == "Unknown file",
+        "An empty window title should use the unknown-file hint.");
     return Task.CompletedTask;
 }
 
